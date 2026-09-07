@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Tampa Loop lead alerts: text message opt-in</title>
+<style>
+  body{margin:0;background:#fbfaf7;color:#141414;font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif}
+  .wrap{max-width:560px;margin:0 auto;padding:36px 20px 60px}
+  h1{font-size:1.7em;line-height:1.2;margin:0 0 10px}
+  p{margin:0 0 14px}
+  label{display:block;font-size:0.9em;margin:12px 0 4px}
+  input[type=text],input[type=tel],input[type=email]{width:100%;box-sizing:border-box;padding:12px;border:1px solid #cfcfcf;border-radius:8px;font:inherit;font-size:1em}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0;font-size:0.9em}
+  .consent input{margin-top:4px}
+  button{display:block;width:100%;margin-top:6px;padding:14px;border:0;border-radius:8px;background:#1d6fe0;color:#fff;font:inherit;font-size:1.05em;font-weight:600;cursor:pointer}
+  button[disabled]{opacity:.6}
+  .ok{display:none;padding:18px;border-radius:8px;background:#eaf6ea;color:#1d4d1d}
+  .err{display:none;color:#a3271d;font-size:0.9em;margin-top:10px}
+  .fine{font-size:0.85em;color:#555;margin-top:18px}
+  a{color:#1d6fe0}
+</style>
+</head>
+<body><main class="wrap">
+<h1>Tampa Loop lead alerts</h1>
+<p>Text message notifications for business owners who advertise with Tampa Loop. When a prospective customer submits a quote request through your Tampa Loop sponsor page, you get a short text with their name, phone number, zip code, and requested service.</p>
+<p>You can also opt in by texting <strong>START</strong> to <strong>(813) 550-2293</strong>.</p>
+
+<form id="optin" novalidate>
+  <label for="name">Your name</label><input id="name" name="name" type="text" required>
+  <label for="business">Business</label><input id="business" name="business" type="text" required>
+  <label for="phone">Mobile number for alerts</label><input id="phone" name="phone" type="tel" inputmode="tel" required>
+  <label for="email">Email</label><input id="email" name="email" type="email" required>
+  <div class="consent">
+    <input id="consent" name="consent" type="checkbox" value="yes">
+    <label for="consent" style="margin:0">By checking this box, I agree to receive Tampa Loop lead alert text messages from Tampa Loop at the mobile number provided. Message frequency varies, typically fewer than 50 messages per month. Message and data rates may apply. Reply STOP to opt out at any time, or HELP for help. Consent is not a condition of any purchase. <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.</label>
+  </div>
+  <input type="hidden" name="source" value="SMS opt-in"><input type="hidden" name="window" value="SMS alert opt-in"><input type="hidden" name="submitted_at">
+  <button type="submit">Opt in to lead alerts</button>
+  <div class="err" id="err"></div>
+</form>
+<div class="ok" id="ok">You are opted in. Reply STOP to any alert to opt out.</div>
+<p class="fine">Tampa Loop, Tampa, FL. Questions: <a href="mailto:kevincole400@gmail.com">kevincole400@gmail.com</a>.</p>
+</main>
+<script>
+(function(){
+  var HOOK="https://hooks.zapier.com/hooks/catch/28775831/4hx6bh7/";
+  var f=document.getElementById('optin'),err=document.getElementById('err'),ok=document.getElementById('ok');
+  f.addEventListener('submit',function(e){
+    e.preventDefault(); err.style.display='none';
+    if(!f.name.value.trim()||!f.business.value.trim()||!f.phone.value.trim()||!f.email.value.trim()){err.textContent='Please fill in every field.';err.style.display='block';return;}
+    if(!f.consent.checked){err.textContent='Please check the consent box to opt in.';err.style.display='block';return;}
+    f.submitted_at.value=new Date().toISOString();
+    var b=f.querySelector('button'); b.disabled=true;
+    fetch(HOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(f))})
+      .then(function(){f.style.display='none';ok.style.display='block';})
+      .catch(function(){b.disabled=false;err.textContent='Something went wrong. Text START to (813) 550-2293 instead.';err.style.display='block';});
+  });
+})();
+</script>
+</body></html>
