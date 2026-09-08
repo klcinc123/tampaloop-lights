@@ -23,24 +23,25 @@
 </style>
 </head>
 <body><main class="wrap">
-<h1>Tampa Loop lead alerts</h1>
-<p>Text message notifications for business owners who advertise with Tampa Loop. When a prospective customer submits a quote request through your Tampa Loop sponsor page, you get a short text with their name, phone number, zip code, and requested service.</p>
-<p>You can also opt in by texting <strong>START</strong> to <strong>(813) 550-2293</strong>.</p>
+<h1>Lead alert preferences</h1>
+<p>For business owners who advertise with Tampa Loop. When a prospective customer submits a quote request through your Tampa Loop sponsor page, you get an alert with their name, phone number, zip code, and requested service.</p>
+<p><strong>Email alerts are included with every placement.</strong> Text message alerts are an optional extra. Choosing not to receive texts does not affect your placement, your leads, or anything else about advertising with Tampa Loop.</p>
+<p>If you prefer, you can opt in to texts later by texting <strong>START</strong> to <strong>(813) 550-2293</strong>, and opt out at any time by replying STOP.</p>
 
 <form id="optin" novalidate>
   <label for="name">Your name</label><input id="name" name="name" type="text" required>
   <label for="business">Business</label><input id="business" name="business" type="text" required>
-  <label for="phone">Mobile number for alerts</label><input id="phone" name="phone" type="tel" inputmode="tel" required>
+  <label for="phone">Mobile number (only needed if you want text alerts)</label><input id="phone" name="phone" type="tel" inputmode="tel">
   <label for="email">Email</label><input id="email" name="email" type="email" required>
   <div class="consent">
     <input id="consent" name="consent" type="checkbox" value="yes">
-    <label for="consent" style="margin:0">By checking this box, I agree to receive Tampa Loop lead alert text messages from Tampa Loop at the mobile number provided. Message frequency varies, typically fewer than 50 messages per month. Message and data rates may apply. Reply STOP to opt out at any time, or HELP for help. Consent is not a condition of any purchase. <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.</label>
+    <label for="consent" style="margin:0">Optional: also send me lead alerts by text message. By checking this box, I agree to receive Tampa Loop lead alert text messages from Tampa Loop at the mobile number provided. Message frequency varies, typically fewer than 50 messages per month. Message and data rates may apply. Reply STOP to opt out at any time, or HELP for help. Consent is not a condition of any purchase. <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.</label>
   </div>
-  <input type="hidden" name="source" value="SMS opt-in"><input type="hidden" name="window" value="SMS alert opt-in"><input type="hidden" name="submitted_at">
-  <button type="submit">Opt in to lead alerts</button>
+  <input type="hidden" name="source" value="Alert preferences"><input type="hidden" name="sms_optin" value="no"><input type="hidden" name="window" value="Alert preferences"><input type="hidden" name="submitted_at">
+  <button type="submit">Save my preferences</button>
   <div class="err" id="err"></div>
 </form>
-<div class="ok" id="ok">You are opted in. Reply STOP to any alert to opt out.</div>
+<div class="ok" id="ok">Saved. Lead alerts will come by email, and by text as well if you chose that. Reply STOP to any text to opt out.</div>
 <p class="fine">Tampa Loop is the trade name of KLC Endeavors LLC, Tampa, FL. Questions: <a href="mailto:kevincole400@gmail.com">kevincole400@gmail.com</a>.</p>
 </main>
 <script>
@@ -49,8 +50,9 @@
   var f=document.getElementById('optin'),err=document.getElementById('err'),ok=document.getElementById('ok');
   f.addEventListener('submit',function(e){
     e.preventDefault(); err.style.display='none';
-    if(!f.name.value.trim()||!f.business.value.trim()||!f.phone.value.trim()||!f.email.value.trim()){err.textContent='Please fill in every field.';err.style.display='block';return;}
-    if(!f.consent.checked){err.textContent='Please check the consent box to opt in.';err.style.display='block';return;}
+    if(!f.name.value.trim()||!f.business.value.trim()||!f.email.value.trim()){err.textContent='Please fill in your name, business, and email.';err.style.display='block';return;}
+    if(f.consent.checked&&f.phone.value.replace(/\D/g,'').length<10){err.textContent='Please add a 10-digit mobile number for text alerts, or uncheck the text option.';err.style.display='block';return;}
+    f.sms_optin.value=f.consent.checked?'yes':'no';
     f.submitted_at.value=new Date().toISOString();
     var b=f.querySelector('button'); b.disabled=true;
     fetch(HOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(new FormData(f))})
