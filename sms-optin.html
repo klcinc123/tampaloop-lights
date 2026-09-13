@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Tampa Loop lead alerts: text message opt-in</title>
+<title>Tampa Loop account notifications: text message opt-in</title>
 <style>
   body{margin:0;background:#fbfaf7;color:#141414;font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif}
   .wrap{max-width:560px;margin:0 auto;padding:36px 20px 60px}
@@ -26,28 +26,28 @@
 </style>
 </head>
 <body><main class="wrap">
-<h1>Lead alert preferences</h1>
-<p>For business owners who advertise with Tampa Loop. When a prospective customer submits a quote request through your Tampa Loop sponsor page, you get an alert with their name, phone number, zip code, and requested service.</p>
-<p><strong>Email alerts are included with every placement.</strong> Text message alerts are an optional extra. Choosing not to receive texts does not affect your placement, your leads, or anything else about advertising with Tampa Loop.</p>
+<h1>Account notification preferences</h1>
+<p>For Tampa Loop business account holders. When someone submits the web form or calls the forwarding number tied to your account, you get a notification with their name, phone number, zip code, and the service they asked about.</p>
+<p><strong>Email notifications are included with every account.</strong> Text notifications are optional. Choosing not to receive texts does not affect your account or anything else about working with Tampa Loop.</p>
 <div class="keyword">
-<p><strong>Prefer to opt in by text?</strong> Text <strong>START</strong> to <strong>(813) 550-2293</strong> to receive Tampa Loop lead alert text messages from Tampa Loop.</p>
-<p>You will receive a text message each time a prospective customer submits a quote request through your Tampa Loop sponsor page. Message frequency varies, typically fewer than 50 messages per month. Message and data rates may apply. Reply STOP to opt out at any time, or HELP for help. Consent is not a condition of any purchase. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.</p>
+<p><strong>Prefer to opt in by text?</strong> Text <strong>START</strong> to <strong>(813) 550-2293</strong> to receive Tampa Loop account notification text messages from Tampa Loop (KLC Endeavors LLC).</p>
+<p>You will receive a text message each time there is new activity on your account, such as a web form submission or an inbound call. Message frequency varies, typically fewer than 50 messages per month. Message and data rates may apply. Reply STOP to opt out at any time, or HELP for help. Consent is not a condition of any purchase. See our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.</p>
 </div>
 
 <form id="optin" novalidate>
   <label for="name">Your name</label><input id="name" name="name" type="text" required>
   <label for="business">Business</label><input id="business" name="business" type="text" required>
-  <label for="phone">Mobile number (only needed if you want text alerts)</label><input id="phone" name="phone" type="tel" inputmode="tel">
+  <label for="phone">Mobile number (only needed if you want text notifications)</label><input id="phone" name="phone" type="tel" inputmode="tel">
   <label for="email">Email</label><input id="email" name="email" type="email" required>
   <div class="consent">
     <input id="consent" name="consent" type="checkbox" value="yes">
-    <label for="consent" style="margin:0">Optional: also send me lead alerts by text message. By checking this box, I agree to receive Tampa Loop lead alert text messages from Tampa Loop at the mobile number provided. Message frequency varies, typically fewer than 50 messages per month. Message and data rates may apply. Reply STOP to opt out at any time, or HELP for help. Consent is not a condition of any purchase. <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.</label>
+    <label for="consent" style="margin:0">Optional: also send me account notifications by text message. By checking this box, I agree to receive Tampa Loop account notification text messages from Tampa Loop (KLC Endeavors LLC) at the mobile number provided. Message frequency varies, typically fewer than 50 messages per month. Message and data rates may apply. Reply STOP to opt out at any time, or HELP for help. Consent is not a condition of any purchase. <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms and Conditions</a>.</label>
   </div>
   <input type="hidden" name="source" value="Alert preferences"><input type="hidden" name="sms_optin" value="no"><input type="hidden" name="window" value="Alert preferences"><input type="hidden" name="submitted_at">
   <button type="submit">Save my preferences</button>
   <div class="err" id="err"></div>
 </form>
-<div class="ok" id="ok">Saved. Lead alerts will come by email, and by text as well if you chose that. Reply STOP to any text to opt out.</div>
+<div class="ok" id="ok">Saved. Notifications will come by email, and by text as well if you chose that. Reply STOP to any text to opt out.</div>
 <p class="fine">Tampa Loop is the trade name of KLC Endeavors LLC, Tampa, FL. Questions: <a href="mailto:kevin@tampaloop.com">kevin@tampaloop.com</a>.</p>
 </main>
 <script>
@@ -57,7 +57,7 @@
   f.addEventListener('submit',function(e){
     e.preventDefault(); err.style.display='none';
     if(!f.name.value.trim()||!f.business.value.trim()||!f.email.value.trim()){err.textContent='Please fill in your name, business, and email.';err.style.display='block';return;}
-    if(f.consent.checked&&f.phone.value.replace(/\D/g,'').length<10){err.textContent='Please add a 10-digit mobile number for text alerts, or uncheck the text option.';err.style.display='block';return;}
+    if(f.consent.checked&&f.phone.value.replace(/\D/g,'').length<10){err.textContent='Please add a 10-digit mobile number for text notifications, or uncheck the text option.';err.style.display='block';return;}
     f.sms_optin.value=f.consent.checked?'yes':'no';
     f.submitted_at.value=new Date().toISOString();
     var b=f.querySelector('button'); b.disabled=true;
