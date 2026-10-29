@@ -74,11 +74,11 @@
   <p class="offer">15% off when you book by Thanksgiving</p>
   <div class="ctas">
     <a class="btn-primary" href="#quote">Get a Free Quote</a>
-    <a class="btn-ghost tl-phone" href="tel:+18134280346">Call Now</a>
+    <a class="btn-ghost tl-phone" href="tel:+18135502293">Call Now</a>
   </div>
   <div class="hero" id="hero"><img src="../hero.jpg" alt="A two-story Tampa Bay home at night with white lights along every roofline and lit wreaths in the windows"></div>
   <ul class="proof">
-    <li>Locally owned. Drew was born and raised in Lutz</li>
+    <li>Locally owned in Tampa Bay</li>
     <li>5.0 rating on Google</li>
     <li>Thumbtack Top Pro 2025</li>
     <li>10-year warranty on permanent LED</li>
@@ -147,7 +147,7 @@
     <div class="tl-note">Bright Lights Tampa will reach out to schedule a free design consultation.</div>
   </form>
   <div class="tl-success" id="tl-success">Got it. Bright Lights Tampa will reach out shortly.</div>
-  <div class="tl-call">Prefer to call? <a class="tl-phone" href="tel:+18134280346">(813) 428-0346</a></div>
+  <div class="tl-call">Prefer to call? <a class="tl-phone" href="tel:+18135502293">(813) 550-2293</a></div>
 </div>
 
   <footer>Bright Lights Tampa is a locally owned holiday lighting company in Tampa Bay. This page is run by Tampa Loop on their behalf, and your details go to Bright Lights Tampa and nowhere else.<br><a href="../privacy.html" style="color:inherit">Privacy Policy</a> &middot; <a href="../terms.html" style="color:inherit">Terms and Conditions</a></footer>
@@ -163,7 +163,7 @@
   // Google then swaps the number on this page for a forwarding number, for ad visitors only.
   var CALL_CONVERSION = "AW-18545140376/REPLACE_WITH_CALL_LABEL";
   if (typeof gtag === "function" && CALL_CONVERSION.indexOf("REPLACE") === -1) {
-    gtag("config", CALL_CONVERSION, { phone_conversion_number: "(813) 428-0346" });
+    gtag("config", CALL_CONVERSION, { phone_conversion_number: "(813) 550-2293" });
   }
   function reportConversion(){
     if (typeof gtag === "function" && CONVERSION_SEND_TO.indexOf("REPLACE") === -1) {
@@ -195,7 +195,7 @@
     if (!/^\S+@\S+\.\S+$/.test(email)) { showError("Please check your email address."); return; }
     if (!/^\d{5}$/.test(zip)) { showError("Zip code should be 5 digits."); return; }
     if (form.company.value) { okBox.style.display = "block"; form.style.display = "none"; return; } // honeypot: pretend success, send nothing
-    if (HOOK.indexOf("http") !== 0) { showError("Form is not connected yet. Please call (813) 428-0346."); return; }
+    if (HOOK.indexOf("http") !== 0) { showError("Form is not connected yet. Please call (813) 550-2293."); return; }
 
     form.submitted_at.value = new Date().toISOString();
     var btn = form.querySelector(".tl-btn"); btn.disabled = true; btn.textContent = "Sending...";
@@ -204,7 +204,7 @@
 
     fetch(HOOK, { method: "POST", mode: "no-cors", body: body })
       .then(function(){ reportConversion(); form.style.display = "none"; okBox.style.display = "block"; })
-      .catch(function(){ btn.disabled = false; btn.textContent = "Get My Free Quote"; showError("Something went wrong. Please call (813) 428-0346."); });
+      .catch(function(){ btn.disabled = false; btn.textContent = "Get My Free Quote"; showError("Something went wrong. Please call (813) 550-2293."); });
   });
 })();
 </script>
