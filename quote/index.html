@@ -57,9 +57,12 @@
   .steps li{counter-increment:s;padding:0 0 14px 44px;position:relative}
   .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
   .steps strong{display:block}
-  .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:0 0 28px}
-  .grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;display:block}
-  @media (max-width:520px){.grid{grid-template-columns:1fr 1fr}.grid img:last-child{display:none}}
+  .wrap{max-width:760px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 30px}
+  .grid figure{margin:0}
+  .grid img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;display:block}
+  .grid figcaption{font-size:0.85em;color:var(--muted);margin-top:6px}
+  @media (max-width:560px){.grid{grid-template-columns:1fr}}
   .faq{margin:0 0 30px}
   .faq h3{font-size:1em;margin:14px 0 4px}
   .faq p{margin:0;color:var(--muted)}
@@ -94,11 +97,18 @@
     </ol>
   </section>
 
-  <div class="grid">
-    <img src="../sponsor/15-christmas-upscale-driveway.jpg" alt="A two-story home with warm white roofline lights, lit trees and lit reindeer">
-    <img src="../sponsor/12-christmas-classic-c9.jpg" alt="A single-story home with red, green and blue Christmas lights">
-    <img src="../sponsor/08-christmas-multicolor-wreath.jpg" alt="A two-story home with multicolor roofline lights and a wreath">
-  </div>
+  <section>
+    <h2>Recent installs</h2>
+    <div class="grid">
+      <figure><img src="../sponsor/15-christmas-upscale-driveway.jpg" alt="A two-story home with warm white roofline lights, lit trees and lit reindeer" loading="lazy"><figcaption>Warm white with lit trees and reindeer</figcaption></figure>
+      <figure><img src="../sponsor/12-christmas-classic-c9.jpg" alt="A single-story home with red, green and blue Christmas lights" loading="lazy"><figcaption>Classic multicolor</figcaption></figure>
+      <figure><img src="../sponsor/08-christmas-multicolor-wreath.jpg" alt="A two-story home with multicolor roofline lights and a wreath" loading="lazy"><figcaption>Multicolor with a wreath</figcaption></figure>
+      <figure><img src="../sponsor/09-large-home-warm-white-v2.jpg" alt="A large two-story home with warm white lights along every roofline" loading="lazy"><figcaption>Warm white on a two-story home</figcaption></figure>
+      <figure><img src="../sponsor/17-front-purple-led.jpg" alt="A home lit in purple with permanent LED lights" loading="lazy"><figcaption>Permanent LED, set to purple</figcaption></figure>
+      <figure><img src="../sponsor/13-front-pink-blue-led.jpg" alt="A home lit in pink and blue with permanent LED lights" loading="lazy"><figcaption>Permanent LED, set to pink and blue</figcaption></figure>
+    </div>
+  </section>
+
 
   <section class="faq">
     <h2>Common questions</h2>
