@@ -55,12 +55,11 @@
   .offer-big{font-size:1.6em;font-weight:800;line-height:1}
   .offer-small{font-weight:600}
   .offer-box{margin:4px auto 16px;max-width:520px;padding:14px 16px;border-radius:10px;background:#fff3d6;border:2px solid #fe9e0b;color:#5c3800}
-  .ctas{display:flex;gap:12px;margin:0 0 24px}
-  .ctas a{display:flex;align-items:center;justify-content:center;text-align:center;padding:14px 12px;border-radius:8px;font-weight:600;text-decoration:none;white-space:nowrap}
-  .ctas .btn-primary{flex:2}
-  .ctas .btn-ghost{flex:1}
+  .ctas{display:flex;flex-direction:column;gap:10px;margin:0 0 24px}
+  .ctas a{display:block;text-align:center;padding:15px 12px;border-radius:8px;font-weight:600;font-size:1.05em;text-decoration:none}
+  .ctas .btn-ghost{padding:6px;font-weight:600}
   .btn-primary{background:var(--accent);color:#fff}
-  .btn-ghost{border:2px solid var(--accent);color:var(--accent)}
+  .btn-ghost{color:var(--accent)}
   .steps{list-style:none;padding:0;margin:0 0 28px;counter-reset:s}
   .steps li{counter-increment:s;padding:0 0 14px 44px;position:relative}
   .steps li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center}
@@ -84,8 +83,8 @@
   <p class="lead">Get your house lit for the holidays without climbing a ladder, untangling a single strand or finding room for the boxes. We handle all of it.</p>
   <p class="offer"><span class="offer-big">15% OFF</span><span class="offer-small">when you book by Thanksgiving</span></p>
   <div class="ctas">
-    <a class="btn-primary" href="#quote">Claim My 15% Off</a>
-    <a class="btn-ghost tl-phone" href="tel:+18135502293">Call Now</a>
+    <a class="btn-primary" href="#quote">Get My Free Quote</a>
+    <a class="btn-ghost tl-phone" href="tel:+18135502293">Or call (813) 550-2293</a>
   </div>
   <div class="hero" id="hero"><img src="../hero.jpg" alt="A two-story Tampa Bay home at night with white lights along every roofline and lit wreaths in the windows"></div>
   <ul class="proof">
