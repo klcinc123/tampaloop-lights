@@ -212,6 +212,9 @@
     var el = form.querySelector('[name="'+k+'"]');
     if (el) el.value = params.get(k) || "";
   });
+  // Mark Google leads in the sheet's existing utm_content column (the ads' URL suffix sends google-{adgroupid}).
+  var uc = form.querySelector('[name="utm_content"]');
+  if (!uc.value) uc.value = "google-ads";
   form.querySelector('[name="page_url"]').value = window.location.href;
 
   function showError(msg){ errBox.textContent = msg; errBox.style.display = "block"; }
